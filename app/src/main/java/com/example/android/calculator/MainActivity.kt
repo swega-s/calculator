@@ -16,14 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
 
-    override fun onBackPressed() {
-        if (flag) {
-            flag = false
-            showOperationViews()
-        } else {
-            super.onBackPressed()
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +52,15 @@ class MainActivity : AppCompatActivity() {
             showOperationViews()
         }
     }
-
+    
+    override fun onBackPressed() {
+        if (flag) {
+            flag = false
+            showOperationViews()
+        } else {
+            super.onBackPressed()
+        }
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
