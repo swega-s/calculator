@@ -51,7 +51,15 @@ class MainActivity : AppCompatActivity() {
             showOperationViews()
         }
     }
-
+    
+    override fun onBackPressed() {
+        if (flag) {
+            flag = false
+            showOperationViews()
+        } else {
+            super.onBackPressed()
+        }
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
