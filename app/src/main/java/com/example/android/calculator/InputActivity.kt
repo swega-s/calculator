@@ -2,12 +2,8 @@ package com.example.android.calculator
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ContentInfoCompat
-import androidx.core.view.children
-import com.example.android.calculator.databinding.ActivityInputBinding
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_input.*
 
@@ -17,9 +13,8 @@ class InputActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_input)
-        val REQUEST_CODE = "REQUEST_CODE"
 
-        val data = intent.getStringExtra(REQUEST_CODE)
+        val data = intent.getStringExtra(MainActivity.req_code)
         opTypeTextView.text = data.toString()
         opButton.text = data.toString()
 
@@ -38,7 +33,7 @@ class InputActivity : AppCompatActivity() {
                 val value2 = val2.toDouble()
 
                 Intent().also {
-                    it.putExtra(REQUEST_CODE, Operations.valueOf(data!!))
+                    it.putExtra(MainActivity.req_code, Operations.valueOf(data!!))
                     it.putExtra("Input1", value1)
                     it.putExtra("Input2", value2)
                     setResult(RESULT_OK, it)

@@ -17,7 +17,7 @@
 
     <EditText
         android:id="@+id/input1"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/et_width"
         android:layout_height="wrap_content"
         android:digits="@string/digits"
         android:hint="Number1"
@@ -25,7 +25,7 @@
 
     <EditText
         android:id="@+id/input2"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/et_width"
         android:layout_height="wrap_content"
         android:digits="@string/digits"
         android:hint="Number2"
@@ -34,7 +34,7 @@
     <Button
         android:id="@+id/opButton"
         android:text="Click"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"/>
 
 </LinearLayout>
