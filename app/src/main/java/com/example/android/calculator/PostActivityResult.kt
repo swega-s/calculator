@@ -37,7 +37,7 @@ class PostActivityResult : ActivityResultContract<String, String?>() {
             }
 
             "Result is ${findWhole(res)}\n" +
-                    "for inputs $input1 and $input2\n" +
+                    "for inputs ${findWhole(input1)} and ${findWhole(input2)}\n" +
                     "for operation - $requestCode"
         } else null
     }
