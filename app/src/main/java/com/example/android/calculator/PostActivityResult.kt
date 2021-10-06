@@ -20,8 +20,10 @@ class PostActivityResult : ActivityResultContract<String, String?>() {
     }
 
     override fun parseResult(resultCode: Int, intent: Intent?): String? {
+        if (intent == null)
+            return null
         val requestCode: Operations =
-            intent?.getSerializableExtra(MainActivity.req_code) as Operations
+            intent.getSerializableExtra(MainActivity.req_code) as Operations
 
         return if (resultCode == AppCompatActivity.RESULT_OK) {
             val input1 = intent.getDoubleExtra("Input1", 0.0)

@@ -23,9 +23,14 @@ class MainActivity : AppCompatActivity() {
 
         val resultLauncher: ActivityResultLauncher<String> =
             registerForActivityResult(PostActivityResult()) { result ->
-                resultTextView.text = result
-                flag = true
-                showResultViews()
+
+                if (result == null) {
+                    return@registerForActivityResult
+                } else {
+                    resultTextView.text = result
+                    flag = true
+                    showResultViews()
+                }
             }
 
         addButton.setOnClickListener {
@@ -47,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
@@ -58,10 +64,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        resultTextView.text = savedInstanceState.getString("ResultString")
         flag = savedInstanceState.getBoolean("flagValue")
-        if (flag)
+        if (flag) {
+            resultTextView.text = savedInstanceState.getString("ResultString")
             showResultViews()
+        }
         else
             showOperationViews()
     }
