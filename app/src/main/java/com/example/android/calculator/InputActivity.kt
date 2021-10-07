@@ -1,5 +1,6 @@
 package com.example.android.calculator
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -9,10 +10,12 @@ import kotlinx.android.synthetic.main.activity_input.*
 
 class InputActivity : AppCompatActivity() {
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_input)
+        supportActionBar!!.setDefaultDisplayHomeAsUpEnabled(true)
 
         val data = intent.getStringExtra(MainActivity.req_code)
         opTypeTextView.text = data.toString()
