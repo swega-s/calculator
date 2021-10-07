@@ -13,6 +13,7 @@ class InputActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_input)
+        supportActionBar!!.setDefaultDisplayHomeAsUpEnabled(true)
 
         val data = intent.getStringExtra(MainActivity.req_code)
         opTypeTextView.text = data.toString()
